@@ -30,8 +30,8 @@
                     <td>{{ atendimento.data_hora.strftime('%d/%m/%Y %H:%M:%S') }}</td>
                     <td>
                         <a href="{{ url_for('visualizar_observacao', id=atendimento.id) }}" class="btn btn-info btn-sm">Ver Observação</a>
-                        <a href="{{ url_for('editar_atendimento', id=atendimento.id) }}" class="btn btn-warning btn-sm">Editar</a>
-                        <a href="{{ url_for('excluir_atendimento', id=atendimento.id) }}" class="btn btn-danger btn-sm">Excluir</a>
+                        <a href="{{ url_for('editar_atendimento', id=atendimento.id) }}" class="btn btn-warning btn-sm" onclick="return confirm('Deseja realmente editar este atendimento?')">Editar</a>
+                        <a href="{{ url_for('excluir_atendimento', id=atendimento.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Deseja realmente excluir este atendimento?')">Excluir</a>
                     </td>
                 </tr>
                 {% endfor %}
