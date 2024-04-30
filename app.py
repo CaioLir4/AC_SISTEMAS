@@ -117,6 +117,33 @@ def baixar_txt():
     response.headers.set('Content-Disposition', 'attachment', filename='atendimentos.txt')
     return response
 
+# Rota para editar um atendimento
+@app.route('/editar_atendimento/<int:id>', methods=['GET', 'POST'])
+def editar_atendimento(id):
+    atendimento = Atendimento.get_or_none(id=id)
+    if atendimento:
+        if request.method == 'POST':
+            atendimento.empresa = request.form['empresa']
+            atendimento.cliente = request.form['cliente']
+            atendimento.atendente = request.form['atendente']
+            atendimento.observacao = request.form['observacao']
+            atendimento.save()
+            return redirect(url_for('listar_atendimentos'))
+        return render_template('editar_atendimento.html', atendimento=atendimento)
+    else:
+        return 'Atendimento não encontrado', 404
+
+# Rota para excluir um atendimento
+@app.route('/excluir_atendimento/<int:id>')
+def excluir_atendimento(id):
+    atendimento = Atendimento.get_or_none(id=id)
+    if atendimento:
+        atendimento.delete_instance()
+        return redirect(url_for('listar_atendimentos'))
+    else:
+        return 'Atendimento não encontrado', 404
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

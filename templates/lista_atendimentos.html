@@ -17,7 +17,7 @@
                     <th>Atendente</th>
                     <th>Observação</th>
                     <th>Data e Hora</th>
-                    <th>Ação</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,7 +29,9 @@
                     <td>{{ atendimento.observacao[:50] }}{{ '...' if atendimento.observacao|length > 50 else '' }}</td>
                     <td>{{ atendimento.data_hora.strftime('%d/%m/%Y %H:%M:%S') }}</td>
                     <td>
-                        <a href="{{ url_for('visualizar_observacao', id=atendimento.id) }}" class="btn btn-info btn-sm">Ver Observação Completa</a>
+                        <a href="{{ url_for('visualizar_observacao', id=atendimento.id) }}" class="btn btn-info btn-sm">Ver Observação</a>
+                        <a href="{{ url_for('editar_atendimento', id=atendimento.id) }}" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="{{ url_for('excluir_atendimento', id=atendimento.id) }}" class="btn btn-danger btn-sm">Excluir</a>
                     </td>
                 </tr>
                 {% endfor %}
