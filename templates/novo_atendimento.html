@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Atendimento</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Novo Atendimento</h1>
+        <form action="{{ url_for('novo_atendimento') }}" method="post">
+            <div class="form-group">
+                <label for="empresa">Empresa:</label>
+                <input type="text" class="form-control" id="empresa" name="empresa" required>
+            </div>
+            <div class="form-group">
+                <label for="cliente">Cliente:</label>
+                <input type="text" class="form-control" id="cliente" name="cliente" required>
+            </div>
+            <div class="form-group">
+                <label for="atendente">Atendente:</label>
+                <select class="form-control" id="atendente" name="atendente" required>
+                    {% for colaborador in colaboradores %}
+                    <option value="{{ colaborador }}">{{ colaborador }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="observacao">Observação:</label>
+                <textarea class="form-control" id="observacao" name="observacao" rows="4" cols="50"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrar Atendimento</button>
+        </form>
+        <br>
+        <a href="{{ url_for('listar_atendimentos') }}" class="btn btn-secondary">Listar Atendimentos</a>
+    </div>
+</body>
+</html>
