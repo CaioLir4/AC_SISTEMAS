@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Principal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_menu.css') }}">
+</head>
+<body>
+    <h1>Menu Principal</h1>
+    <div class="botoes-menu">
+        <a href="{{ url_for('listar_clientes') }}" class="btn-menu">Lista de Clientes</a>
+        <a href="{{ url_for('novo_cliente') }}" class="btn-menu">Adicionar Cliente</a>
+        <a href="{{ url_for('listar_atendimentos') }}" class="btn-menu">Lista de Atendimentos</a>
+        <a href="{{ url_for('novo_atendimento') }}" class="btn-menu">Adicionar Atendimento</a>
+    </div>
+</body>
+</html>

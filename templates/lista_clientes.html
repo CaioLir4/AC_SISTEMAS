@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Clientes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_lista_clientes.css') }}">
+</head>
+<body>
+    <!-- Barra de pesquisa -->
+    <form action="{{ url_for('buscar_clientes') }}" method="GET">
+        <input type="text" name="query" placeholder="Buscar clientes...">
+        <input type="submit" value="Buscar">
+    </form>
+
+    <!-- Lista de clientes -->
+    <h1>Lista de Clientes</h1>
+    <ul>
+        {% for cliente in clientes %}
+            <li>{{ cliente.nome }} - {{ cliente.email }}
+                <a href="{{ url_for('editar_cliente', id=cliente.id) }}">Editar</a>
+                <a href="{{ url_for('excluir_cliente', id=cliente.id) }}" onclick="return confirm('Tem certeza que deseja excluir este cliente?')">Excluir</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('baixar_clientes_xlsx') }}" class="btn-download">Baixar Dados dos Clientes em XLSX</a>
+
+    <!-- Botão de voltar ao menu -->
+    <a href="{{ url_for('pagina_inicial') }}" class="btn-voltar">Voltar ao Menu</a>
+</body>
+</html>

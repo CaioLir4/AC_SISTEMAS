@@ -1,0 +1,28 @@
+/* Estilos para o menu */
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.botoes-menu {
+    text-align: center;
+    margin-top: 50px; /* Adiciona um espaçamento entre o título e os botões */
+}
+
+.btn-menu {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    text-decoration: none;
+    border-radius: 5px; /* Borda arredondada */
+    margin: 0 10px; /* Espaçamento entre os botões */
+    transition: background-color 0.3s; /* Transição suave da cor de fundo */
+}
+
+.btn-menu:hover {
+    background-color: #0056b3; /* Altera a cor de fundo ao passar o mouse */
+}

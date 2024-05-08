@@ -1,0 +1,42 @@
+/* Estilos para a lista de clientes */
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    color: #555;
+}
+.btn-voltar {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-voltar:hover {
+    background-color: #0056b3;
+}
+
